@@ -12,7 +12,7 @@ class NBSellerViewController: NBBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.backgroundColor = UIColor.blueColor()
         // Do any additional setup after loading the view.
     }
 

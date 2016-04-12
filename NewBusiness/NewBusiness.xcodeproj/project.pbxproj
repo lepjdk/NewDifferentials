@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		12C60A3B6CF0B57A7C057FF0 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66BB274B0F40DE6282FE0E42 /* Pods.framework */; };
+		17025D4C1CBB86240036C131 /* NBSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17025D4B1CBB86240036C131 /* NBSearchView.swift */; };
+		17025D4E1CBBA89C0036C131 /* NBShopLRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17025D4D1CBBA89C0036C131 /* NBShopLRView.swift */; };
 		173E0D091CB75252009BBBEC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 173E0D071CB75252009BBBEC /* Main.storyboard */; };
 		173E0D0B1CB75252009BBBEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 173E0D0A1CB75252009BBBEC /* Assets.xcassets */; };
 		173E0D0E1CB75252009BBBEC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 173E0D0C1CB75252009BBBEC /* LaunchScreen.storyboard */; };
@@ -23,9 +25,18 @@
 		176FC0171CB7A8BE000996FA /* NBSaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176FC0161CB7A8BE000996FA /* NBSaleViewController.swift */; };
 		176FC0191CB7A8D3000996FA /* NBSellerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176FC0181CB7A8D3000996FA /* NBSellerViewController.swift */; };
 		176FC01B1CB7A8E4000996FA /* NBShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176FC01A1CB7A8E4000996FA /* NBShopViewController.swift */; };
+		17FEAED91CBC8933008FD7F7 /* NBShopLeftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FEAED71CBC8933008FD7F7 /* NBShopLeftCell.swift */; };
+		17FEAEDA1CBC8933008FD7F7 /* NBShopLeftCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17FEAED81CBC8933008FD7F7 /* NBShopLeftCell.xib */; };
+		17FEAEDD1CBC8955008FD7F7 /* NBShopRightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FEAEDB1CBC8955008FD7F7 /* NBShopRightCell.swift */; };
+		17FEAEDE1CBC8955008FD7F7 /* NBShopRightCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17FEAEDC1CBC8955008FD7F7 /* NBShopRightCell.xib */; };
+		17FEAEE01CBCA97E008FD7F7 /* NBShopTittleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FEAEDF1CBCA97E008FD7F7 /* NBShopTittleView.swift */; };
+		17FEAEE21CBCE668008FD7F7 /* NBBadgeBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FEAEE11CBCE668008FD7F7 /* NBBadgeBarButtonItem.swift */; };
+		17FEAEE41CBCFD8E008FD7F7 /* NBActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FEAEE31CBCFD8E008FD7F7 /* NBActivityView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		17025D4B1CBB86240036C131 /* NBSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBSearchView.swift; sourceTree = "<group>"; };
+		17025D4D1CBBA89C0036C131 /* NBShopLRView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBShopLRView.swift; sourceTree = "<group>"; };
 		173E0D001CB75252009BBBEC /* NewBusiness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewBusiness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		173E0D081CB75252009BBBEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		173E0D0A1CB75252009BBBEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -43,6 +54,13 @@
 		176FC0161CB7A8BE000996FA /* NBSaleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBSaleViewController.swift; sourceTree = "<group>"; };
 		176FC0181CB7A8D3000996FA /* NBSellerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBSellerViewController.swift; sourceTree = "<group>"; };
 		176FC01A1CB7A8E4000996FA /* NBShopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBShopViewController.swift; sourceTree = "<group>"; };
+		17FEAED71CBC8933008FD7F7 /* NBShopLeftCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBShopLeftCell.swift; sourceTree = "<group>"; };
+		17FEAED81CBC8933008FD7F7 /* NBShopLeftCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NBShopLeftCell.xib; sourceTree = "<group>"; };
+		17FEAEDB1CBC8955008FD7F7 /* NBShopRightCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBShopRightCell.swift; sourceTree = "<group>"; };
+		17FEAEDC1CBC8955008FD7F7 /* NBShopRightCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NBShopRightCell.xib; sourceTree = "<group>"; };
+		17FEAEDF1CBCA97E008FD7F7 /* NBShopTittleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBShopTittleView.swift; sourceTree = "<group>"; };
+		17FEAEE11CBCE668008FD7F7 /* NBBadgeBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBBadgeBarButtonItem.swift; sourceTree = "<group>"; };
+		17FEAEE31CBCFD8E008FD7F7 /* NBActivityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBActivityView.swift; sourceTree = "<group>"; };
 		66BB274B0F40DE6282FE0E42 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6771E666D04A5FDA64D9ECC5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D92E7C808EC2D72F263EB6FE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -60,6 +78,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17025D4A1CBB85DF0036C131 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				17025D4B1CBB86240036C131 /* NBSearchView.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		173E0CF71CB75252009BBBEC = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +191,8 @@
 			isa = PBXGroup;
 			children = (
 				176FC01A1CB7A8E4000996FA /* NBShopViewController.swift */,
+				17025D4D1CBBA89C0036C131 /* NBShopLRView.swift */,
+				17FEAEE31CBCFD8E008FD7F7 /* NBActivityView.swift */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -179,6 +207,7 @@
 		173E0D201CB7528D009BBBEC /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				17FEAEE11CBCE668008FD7F7 /* NBBadgeBarButtonItem.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -186,6 +215,8 @@
 		173E0D211CB7528D009BBBEC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				17FEAED61CBC88D7008FD7F7 /* ShopView */,
+				17025D4A1CBB85DF0036C131 /* Common */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -195,6 +226,18 @@
 			children = (
 			);
 			path = Newfeatures;
+			sourceTree = "<group>";
+		};
+		17FEAED61CBC88D7008FD7F7 /* ShopView */ = {
+			isa = PBXGroup;
+			children = (
+				17FEAED71CBC8933008FD7F7 /* NBShopLeftCell.swift */,
+				17FEAED81CBC8933008FD7F7 /* NBShopLeftCell.xib */,
+				17FEAEDB1CBC8955008FD7F7 /* NBShopRightCell.swift */,
+				17FEAEDC1CBC8955008FD7F7 /* NBShopRightCell.xib */,
+				17FEAEDF1CBCA97E008FD7F7 /* NBShopTittleView.swift */,
+			);
+			path = ShopView;
 			sourceTree = "<group>";
 		};
 		1F0960C444E297587F7B7BDC /* Pods */ = {
@@ -280,6 +323,8 @@
 				173E0D291CB75C3C009BBBEC /* Storyboard.storyboard in Resources */,
 				173E0D0B1CB75252009BBBEC /* Assets.xcassets in Resources */,
 				173E0D091CB75252009BBBEC /* Main.storyboard in Resources */,
+				17FEAEDE1CBC8955008FD7F7 /* NBShopRightCell.xib in Resources */,
+				17FEAEDA1CBC8933008FD7F7 /* NBShopLeftCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,15 +383,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17FEAED91CBC8933008FD7F7 /* NBShopLeftCell.swift in Sources */,
 				173E0D251CB75B78009BBBEC /* NBBaseViewController.swift in Sources */,
 				176FC00F1CB7A5E4000996FA /* NBTabBarController.swift in Sources */,
+				17025D4C1CBB86240036C131 /* NBSearchView.swift in Sources */,
+				17FEAEE21CBCE668008FD7F7 /* NBBadgeBarButtonItem.swift in Sources */,
 				173E0D221CB7528D009BBBEC /* AppDelegate.swift in Sources */,
 				176FC0191CB7A8D3000996FA /* NBSellerViewController.swift in Sources */,
+				17FEAEE41CBCFD8E008FD7F7 /* NBActivityView.swift in Sources */,
 				176FC01B1CB7A8E4000996FA /* NBShopViewController.swift in Sources */,
+				17FEAEDD1CBC8955008FD7F7 /* NBShopRightCell.swift in Sources */,
 				176FC0171CB7A8BE000996FA /* NBSaleViewController.swift in Sources */,
 				176FC0131CB7A895000996FA /* NBMeViewController.swift in Sources */,
 				176FC0151CB7A8A9000996FA /* NBMessageViewController.swift in Sources */,
 				176FC0111CB7A83B000996FA /* NBNavigationController.swift in Sources */,
+				17FEAEE01CBCA97E008FD7F7 /* NBShopTittleView.swift in Sources */,
+				17025D4E1CBBA89C0036C131 /* NBShopLRView.swift in Sources */,
 				173E0D271CB75C0F009BBBEC /* NBLoginViewController.swift in Sources */,
 				173E0D231CB7528D009BBBEC /* MainViewController.swift in Sources */,
 			);
