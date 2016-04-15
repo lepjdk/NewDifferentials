@@ -25,8 +25,14 @@ class NBSearchView: UIView {
     //MAKR :--生命周期方法
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.whiteColor()
+        //初始化操作
+        setUpView()
         
+    }
+    
+    private func setUpView()
+    {
+        self.backgroundColor = UIColor.whiteColor()
         // 初始化子控件
         setUpChildView()
         // 布局子控件
@@ -34,10 +40,17 @@ class NBSearchView: UIView {
         
         button.addTarget(self, action: Selector("searchClick"), forControlEvents: .TouchUpInside)
     }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    required init?(coder aDecoder: NSCoder)
+    {
+        super.init(coder: aDecoder)
+        setUpView()
     }
+
+//    required init?(coder aDecoder: NSCoder) {
+////        super.init(coder: aDecoder)
+//        fatalError("init(coder:) has not been implemented")
+//        
+//    }
     //MAKR:--内部方法
     private func setUpChildView()
     {
@@ -48,6 +61,10 @@ class NBSearchView: UIView {
     {
         searchBar.frame = self.bounds
         button.frame = self.bounds
+        self.layer.cornerRadius = 22
+        self.layer.masksToBounds = true
+        self.layer.borderColor = UIColor.whiteColor().CGColor;
+        self.layer.borderWidth = 8;
         
     }
     func searchClick()

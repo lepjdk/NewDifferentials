@@ -15,18 +15,19 @@ class NBShopViewController: NBBaseViewController {
     //MAKR:--生命周期方法
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.backgroundColor = UIColor.whiteColor()
         self.automaticallyAdjustsScrollViewInsets = false
         
         //设置导航条tittle视图
         self.navigationItem.titleView = shopTitleView
-//        self.navigationItem.rightBarButtonItem = badgeItem
-         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: rightItemView)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: rightItemView)
+        
         //添加子控件
         setUpChildView()
+        
         //监听通知
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("tittleViewBtnChanged:"), name: "keyNotifyShop", object: nil)
-        // Do any additional setup after loading the view.
     }
 
     
@@ -48,6 +49,8 @@ class NBShopViewController: NBBaseViewController {
         self.view.addSubview(scrollContentView)
         self.scrollContentView.addSubview(searchView)
         self.scrollContentView.addSubview(shopLRView)
+        self.scrollContentView.addSubview(activityView)
+    
     }
     //监听头部按钮切换点击事件
     func tittleViewBtnChanged(notify : NSNotification)
@@ -117,6 +120,10 @@ class NBShopViewController: NBBaseViewController {
     private lazy var searchView : NBSearchView = {
     
         let search = NBSearchView.init(frame: CGRect(x: 0, y: 0, width: self.screenW, height: 44))
+//        search.layer.cornerRadius = 22
+//        search.layer.masksToBounds = true
+//        search.layer.borderColor = UIColor.whiteColor().CGColor;
+//        search.layer.borderWidth = 8;
         search.delegate = self
         search.placeholderText = "输入商品名称搜索"
         return search
@@ -125,6 +132,12 @@ class NBShopViewController: NBBaseViewController {
     private lazy var shopLRView : NBShopLRView = {
        let shopTbView = NBShopLRView.init(frame: CGRect(x: 0, y: 44, width: self.screenW, height: self.screenH - 64 - 44 - 49))
         return shopTbView
+    }()
+    
+    private lazy var activityView : NBActivityView = {
+        let activityV = NBActivityView.init(frame: CGRect(x: self.screenW, y: 0, width: self.screenW, height: self.screenH - 49 - 64))
+        activityV.backgroundColor = UIColor(red: 229/255.0, green: 229/255.0, blue: 229/255.0, alpha: 1)
+        return activityV
     }()
 
 }

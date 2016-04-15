@@ -18,6 +18,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         
+        //设置tabbar全局外观
+        setTabBarAppearance()
+        //设置Navigation全局外观
+        setNavigationAppearance()
+
+//        let storyBoard = UIStoryboard.init(name: "Storyboard", bundle: nil)
+//        let loginVC = storyBoard.instantiateInitialViewController()
+        let tabbarVC = NBTabBarController()
+        window =  UIWindow.init(frame: UIScreen.mainScreen().bounds)
+        
+//        window?.rootViewController = loginVC
+        window?.rootViewController = tabbarVC
+        
+        window?.makeKeyAndVisible()
+        
+        
+        return true
+    }
+    
+    private func setTabBarAppearance()
+    {
         //设置全局外观[UIColor colorWithRed:242/255.0f green:163/255.0f blue:58/255.0f alpha:1]
         UITabBar.appearance().tintColor = UIColor(red: 242/255.0, green: 163/255.0, blue: 58/255.0, alpha: 1)
         let rect : CGRect = CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.size.width, height: 1)
@@ -32,19 +53,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().backgroundImage = UIImage()
         UITabBar.appearance().shadowImage = image
         UITabBar.appearance().barTintColor = UIColor.whiteColor()
-//
-//        let storyBoard = UIStoryboard.init(name: "Storyboard", bundle: nil)
-//        let loginVC = storyBoard.instantiateInitialViewController()
-        let tabbarVC = NBTabBarController()
-        window =  UIWindow.init(frame: UIScreen.mainScreen().bounds)
-        
-//        window?.rootViewController = loginVC
-        window?.rootViewController = tabbarVC
-        
-        window?.makeKeyAndVisible()
-        
-        
-        return true
+    }
+    
+    private func setNavigationAppearance()
+    {
+        //设置全局外观
+        UINavigationBar.appearance().tintColor = UIColor(red: 242/255.0, green: 163/255.0, blue: 58/255.0, alpha: 1)
+        UINavigationBar.appearance().barTintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName : UIFont.systemFontOfSize(15)]
+        UINavigationBar.appearance().backIndicatorImage = UIImage(named: "ic_nav_back")
+        UINavigationBar.appearance().backIndicatorTransitionMaskImage = UIImage(named: "ic_nav_back")
     }
 
     func applicationWillResignActive(application: UIApplication) {

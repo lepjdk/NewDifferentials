@@ -10,28 +10,48 @@ import UIKit
 
 class NBSaleViewController: NBBaseViewController {
 
+    //MAKR:--属性变量
+    //订单列表视图
+    @IBOutlet weak var tottalSalesLabel: UILabel!
+    //我的月零售额
+    @IBOutlet weak var meRetailMothSalesLabel: UILabel!
+    //团队月销售额
+    @IBOutlet weak var teamMothSalesLabel: UILabel!
+    //总销售额
+    @IBOutlet weak var orderViewList: UIView!
+    
+    //MAKR:--生命周期方法
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.redColor()
-
-        // Do any additional setup after loading the view.
+        //设置订单列表
+        orderViewList.addSubview(orderView)
+        orderView.frame = orderViewList.bounds
     }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    //MAKR:-- 内部控制方法
+    //我的返利按钮
+    @IBAction func meReturnProfitBtnClick(sender: AnyObject) {
     }
-    */
+    //我的零售订单按钮
+    @IBAction func meRetailBtnClick(sender: AnyObject) {
+    }
+    //添加零售订单按钮
+    @IBAction func addRetailListBtnClick(sender: AnyObject) {
+    }
+    //全部订单按钮
+    @IBAction func allListBtnClick(sender: AnyObject) {
+    }
+    
+//    override func viewDidLayoutSubviews() {
+//        super.viewDidLayoutSubviews()
+//        orderView.frame = orderViewList.bounds
+//    }
 
+   
+    //MAKR:--懒加载
+    private lazy var orderView = NBOrderListView.orderListView()
 }
