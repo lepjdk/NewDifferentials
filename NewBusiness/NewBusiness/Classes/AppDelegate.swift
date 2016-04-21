@@ -16,7 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        
+        /*
+        let str = "123456"
+        let str2 = NBStringUtil.MD5Encrypt(str)
+        NSLog("%@", str2)
+        let dictM = NSMutableDictionary()
+        dictM["account"] = "13800138001"
+        dictM["password"]  = str2
+        dictM["version_code"] = "20160421"
+        */
         
         //设置tabbar全局外观
         setTabBarAppearance()
