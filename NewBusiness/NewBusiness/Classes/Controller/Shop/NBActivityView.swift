@@ -10,7 +10,7 @@ import UIKit
 
 class NBActivityView: UIView {
 
-    //MAKR:--生命周期方法
+    //MARK:--生命周期方法
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -22,7 +22,7 @@ class NBActivityView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //MAKR:--内部控制方法
+    //MARK:--内部控制方法
     private func SetUpChildView()
     {
         self.addSubview(emptyImage)
@@ -35,7 +35,7 @@ class NBActivityView: UIView {
         emptyLabel.center = CGPoint(x: self.frame.size.width * 0.5, y: self.frame.size.height * 0.5 + 35)
     }
     
-    //MAKR:--懒加载
+    //MARK:--懒加载
     private lazy var emptyImage : UIImageView = {
        let imageV = UIImageView()
         imageV.image = UIImage(named: "img_nothing")

@@ -27,7 +27,6 @@ class NBTabBarController: UITabBarController {
     // MARK: - 内部控制方法
     private func setUpAddChildViewController()
     {
-    
         addChildVC(shopVC, tittleName: "商城", imageName: "ic_tab_shop")
         addChildVC(saleVC, tittleName: "销售", imageName: "ic_tab_sale")
         addChildVC(messageVC, tittleName: "消息", imageName :"ic_tab_message")

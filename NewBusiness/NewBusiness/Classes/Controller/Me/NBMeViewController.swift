@@ -10,7 +10,7 @@ import UIKit
 
 class NBMeViewController: NBBaseViewController {
 
-    //MAKR:--属性参数
+    //MARK:--属性参数
     private let screenW = UIScreen.mainScreen().bounds.size.width
     private let screenH = UIScreen.mainScreen().bounds.size.height
     
@@ -23,7 +23,7 @@ class NBMeViewController: NBBaseViewController {
     @IBOutlet weak var sealerInfoBtn: UIButton!     //经销商信息
     @IBOutlet weak var orderListView: UIView!
     
-    //MAKR:--生命周期方法
+    //MARK:--生命周期方法
     override func viewDidLoad() {
         super.viewDidLoad()
         //初始化控件
@@ -46,7 +46,7 @@ class NBMeViewController: NBBaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    //MAKR:--内部控制方法
+    //MARK:--内部控制方法
     private func setUpView()
     {
         //导航条右边item
@@ -80,7 +80,7 @@ class NBMeViewController: NBBaseViewController {
     {
         NSLog("签到")
     }
-    //MAKR:--事件处理方法
+    //MARK:--事件处理方法
     //用户详情点击
     @IBAction func userInfoBtnClick() {
     }
@@ -108,7 +108,7 @@ class NBMeViewController: NBBaseViewController {
     //更多设置
     @IBAction func moreSettingClick() {
     }
-    //MAKR:--懒加载
+    //MARK:--懒加载
     private lazy var backView : UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(white: 1, alpha: 1/64.0)

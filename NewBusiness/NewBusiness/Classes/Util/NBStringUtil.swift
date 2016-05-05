@@ -30,5 +30,16 @@ class NBStringUtil: NSObject {
             result[8], result[9], result[10], result[11],
             result[12], result[13], result[14], result[15]).lowercaseString
     }
+    
+    /**
+    *快速拼接一个缓存路径
+    */
+    class func cacheDir(str : String) -> String
+    {
+        let path = NSSearchPathForDirectoriesInDomains(.CachesDirectory, .UserDomainMask, true).last
+        NSLog("----%@----", path!)
+        return (path! as NSString).stringByAppendingPathComponent(str)
+    }
 
 }
+

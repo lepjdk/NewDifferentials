@@ -10,7 +10,7 @@ import UIKit
 
 class NBSaleViewController: NBBaseViewController {
 
-    //MAKR:--属性变量
+    //MARK:--属性变量
     //订单列表视图
     @IBOutlet weak var tottalSalesLabel: UILabel!
     //我的月零售额
@@ -20,7 +20,7 @@ class NBSaleViewController: NBBaseViewController {
     //总销售额
     @IBOutlet weak var orderViewList: UIView!
     
-    //MAKR:--生命周期方法
+    //MARK:--生命周期方法
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,7 +32,7 @@ class NBSaleViewController: NBBaseViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    //MAKR:-- 内部控制方法
+    //MARK:-- 内部控制方法
     //我的返利按钮
     @IBAction func meReturnProfitBtnClick(sender: AnyObject) {
     }
@@ -52,6 +52,6 @@ class NBSaleViewController: NBBaseViewController {
 //    }
 
    
-    //MAKR:--懒加载
+    //MARK:--懒加载
     private lazy var orderView = NBOrderListView.orderListView()
 }

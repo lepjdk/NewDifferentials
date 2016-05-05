@@ -6,10 +6,12 @@
 //  Copyright © 2016年 lepjdk. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-protocol SearchViewDelegate : class {
-    func didClickSearchBtn()
+@objc public protocol SearchViewDelegate : NSObjectProtocol {
+    @objc optional func didClickSearchBtn()
+    @objc optional func SearchButtonClicked(searchBar: UISearchBar)
 }
 class NBSearchView: UIView {
 
@@ -19,10 +21,14 @@ class NBSearchView: UIView {
         }
         
     }
-    
+    var hideBtn : Bool? {
+        didSet{
+            button.hidden = hideBtn!
+        }
+    }
     weak var delegate : SearchViewDelegate?
    
-    //MAKR :--生命周期方法
+    //MARK :--生命周期方法
     override init(frame: CGRect) {
         super.init(frame: frame)
         //初始化操作
@@ -51,7 +57,7 @@ class NBSearchView: UIView {
 //        fatalError("init(coder:) has not been implemented")
 //        
 //    }
-    //MAKR:--内部方法
+    //MARK:--内部方法
     private func setUpChildView()
     {
         self.addSubview(searchBar)
@@ -70,13 +76,14 @@ class NBSearchView: UIView {
     func searchClick()
     {
         NSLog("正在搜索中。。。")
-        self.delegate?.didClickSearchBtn()
+        self.delegate?.didClickSearchBtn!()
     }
     
-    //MAKR:--懒加载
+    //MARK:--懒加载
     private lazy var searchBar : UISearchBar = {
     
         let search = UISearchBar()
+        search.delegate = self
         search.placeholder = "输入查询信息"
         search.searchBarStyle = .Minimal
         search.setImage(UIImage(named: "ic_search"), forSearchBarIcon: .Search, state: .Normal)
@@ -85,4 +92,11 @@ class NBSearchView: UIView {
     }()
     private lazy var button : UIButton = UIButton()
 
+}
+
+extension NBSearchView : UISearchBarDelegate
+{
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        self.delegate?.SearchButtonClicked!(searchBar)
+    }
 }

@@ -10,6 +10,13 @@ import UIKit
 
 class NBLoginViewController: NBBaseViewController {
 
+    /*
+    private lazy var appDelegate : AppDelegate = {
+        let delegate = AppDelegate()
+        return delegate
+    }()
+    */
+    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
     //密码
@@ -38,6 +45,20 @@ class NBLoginViewController: NBBaseViewController {
         //设置按钮圆角
         loginBtn.layer.cornerRadius = 20.0
         loginBtn.layer.masksToBounds = true
+        
+        /*
+        if !NBUserUtil.shareUser.isLogin() {
+            return
+        }
+
+        toMainView()
+        */
+    }
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
     }
     
 
@@ -48,6 +69,13 @@ class NBLoginViewController: NBBaseViewController {
         self.pwdTF.resignFirstResponder()
         self.phoneNumberTF.resignFirstResponder()
     }
+    /*
+    func toMainView()
+    {
+        let tabbarVC = NBTabBarController()
+        self.appDelegate.window?.rootViewController = tabbarVC
+    }
+    */
     //登录点击
     @IBAction func loginClick() {
         
@@ -66,13 +94,35 @@ class NBLoginViewController: NBBaseViewController {
         }
         else
         {
-            if phoneNumberTF.text == "13145803218" && pwdTF.text == "123456"
-            {
-                NSUserDefaults.standardUserDefaults().setObject(phoneNumberTF.text, forKey: "userPhone")
-                NSUserDefaults.standardUserDefaults().setObject(pwdTF.text, forKey: "userPWD")
-                NSUserDefaults.standardUserDefaults().setObject("lepjdk", forKey: "userName")
-                NSUserDefaults.standardUserDefaults().setBool(true, forKey: "isLogin")
-                NSLog("登录成功")
+            let strPhoneN = phoneNumberTF.text
+            let strPWD = pwdTF.text
+            let strMD5 = NBStringUtil.MD5Encrypt(strPWD!)
+            NSLog("%@", strMD5)
+            let dictM = NSMutableDictionary()
+            dictM["account"] = strPhoneN
+            dictM["password"]  = strMD5
+            dictM["version_code"] = "20160426"
+            NBAFNManagerTool.shareInstance.loginSession(dictM) { (task, result, error) -> () in
+                if error != nil {
+                    NSLog("登录失败!")
+                }
+                else
+                {
+                    let resultData = result as! NSDictionary
+                    NSLog("%@", resultData)
+                    let code = resultData["code"]?.integerValue
+                    if code == 0 {
+                       let userData = resultData["data"] as! NSDictionary
+                       let dataTask = task! as NSURLSessionDataTask
+                       let reponseData = dataTask.response as! NSHTTPURLResponse
+                        NBUserUtil.shareUser.feachSession(reponseData, value: userData)
+                        
+                    }
+                    else
+                    {
+                        NSLog("%@", resultData["message"] as! NSString)
+                    }
+                }
             }
         }
         
@@ -85,15 +135,6 @@ class NBLoginViewController: NBBaseViewController {
     @IBAction func helpClick() {
         NSLog("helpClick")
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 

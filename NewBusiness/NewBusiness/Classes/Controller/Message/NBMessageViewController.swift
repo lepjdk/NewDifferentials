@@ -9,7 +9,7 @@
 import UIKit
 
 class NBMessageViewController: NBBaseViewController {
-    //MAKR:--xib属性参数
+    //MARK:--xib属性参数
     @IBOutlet weak var searchView: NBSearchView!
 
     @IBOutlet weak var sendedProductMark: NBMarkLabel!
@@ -17,7 +17,7 @@ class NBMessageViewController: NBBaseViewController {
     @IBOutlet weak var sendingProductMark: NBMarkLabel!
     @IBOutlet weak var cellectingMark: NBMarkLabel!
     @IBOutlet weak var confermOrderMark: NBMarkLabel!
-    //MAKR:--按钮事件监听
+    //MARK:--按钮事件监听
     @IBAction func systemMessageBtnClick() {
     }
     @IBAction func publicMessageBtnClick() {
@@ -36,7 +36,7 @@ class NBMessageViewController: NBBaseViewController {
      */
     @IBAction func orderNotifyBtnClick(sender: AnyObject) {
     }
-    //MAKR:--生命周期方法
+    //MARK:--生命周期方法
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,7 +47,7 @@ class NBMessageViewController: NBBaseViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    //MAKR:--内部控制方法
+    //MARK:--内部控制方法
     private func setUpView()
     {
         searchView.placeholderText = "搜索消息"

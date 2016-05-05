@@ -13,8 +13,20 @@ class NBShopLeftCell: UITableViewCell {
     @IBOutlet weak var indicatorV: UIView!
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var productIcon: UIImageView!
+    
+    var dataItem : NBCategoryModel? {
+        didSet
+            {
+//                indicatorV.backgroundColor = UIColor.whiteColor()
+                NBWebImageTool.shareTool.setImageViewWithImage(productIcon, urlStr: dataItem?.image, placeholderImage: "img_default_product")
+                productName.text = dataItem?.name
+                
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.selectionStyle = .None
         // Initialization code
     }
 

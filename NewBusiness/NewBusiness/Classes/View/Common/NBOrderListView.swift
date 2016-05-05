@@ -9,7 +9,7 @@
 import UIKit
 
 class NBOrderListView: UIView {
-    //MAKR:--xib属性
+    //MARK:--xib属性
     @IBOutlet weak var confirmingLable: UILabel!
     @IBOutlet weak var paymentingLabel: UILabel!
     @IBOutlet weak var receiveGooded: UILabel!
@@ -17,7 +17,7 @@ class NBOrderListView: UIView {
     @IBOutlet weak var sendGoodingLabel: UILabel!
     private var isLoadView : Bool = true
     
-    //MAKR:--事件监听
+    //MARK:--事件监听
     //订单点击监听事件
     /** 
     *btn.Tag
@@ -46,7 +46,7 @@ class NBOrderListView: UIView {
         sendGoodingLabel.layer.masksToBounds = true
         
     }
-    //MAKR:--外部控制方法
+    //MARK:--外部控制方法
     class func orderListView() -> NBOrderListView
     {
         return NSBundle.mainBundle().loadNibNamed("NBOrderListView", owner: nil, options: nil).first as! NBOrderListView

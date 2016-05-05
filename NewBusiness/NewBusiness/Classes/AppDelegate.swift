@@ -16,35 +16,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        /*
-        let str = "123456"
-        let str2 = NBStringUtil.MD5Encrypt(str)
-        NSLog("%@", str2)
-        let dictM = NSMutableDictionary()
-        dictM["account"] = "13800138001"
-        dictM["password"]  = str2
-        dictM["version_code"] = "20160421"
-        */
         
         //设置tabbar全局外观
         setTabBarAppearance()
         //设置Navigation全局外观
         setNavigationAppearance()
 
-//        let storyBoard = UIStoryboard.init(name: "Storyboard", bundle: nil)
-//        let loginVC = storyBoard.instantiateInitialViewController()
-        let tabbarVC = NBTabBarController()
-        window =  UIWindow.init(frame: UIScreen.mainScreen().bounds)
-        
-//        window?.rootViewController = loginVC
-        window?.rootViewController = tabbarVC
-        
-        window?.makeKeyAndVisible()
-        
+        //进入界面
+        setLoginStyle()
         
         return true
     }
-    
+    //设置全局外观
     private func setTabBarAppearance()
     {
         //设置全局外观[UIColor colorWithRed:242/255.0f green:163/255.0f blue:58/255.0f alpha:1]
@@ -62,15 +45,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().shadowImage = image
         UITabBar.appearance().barTintColor = UIColor.whiteColor()
     }
-    
+    //设置全局外观
     private func setNavigationAppearance()
     {
-        //设置全局外观
         UINavigationBar.appearance().tintColor = UIColor(red: 242/255.0, green: 163/255.0, blue: 58/255.0, alpha: 1)
         UINavigationBar.appearance().barTintColor = UIColor.whiteColor()
         UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName : UIFont.systemFontOfSize(15)]
         UINavigationBar.appearance().backIndicatorImage = UIImage(named: "ic_nav_back")
         UINavigationBar.appearance().backIndicatorTransitionMaskImage = UIImage(named: "ic_nav_back")
+    }
+    //设置进入的界面
+    private func setLoginStyle()
+    {
+        window =  UIWindow.init(frame: UIScreen.mainScreen().bounds)
+        
+        //判断用户是否已经登录过
+        if NBUserUtil.shareUser.isLogin() {
+            let tabbarVC = NBTabBarController()
+            window?.rootViewController = tabbarVC
+        }
+        else
+        {
+            let storyBoard = UIStoryboard.init(name: "Storyboard", bundle: nil)
+            let loginVC = storyBoard.instantiateInitialViewController()
+            window?.rootViewController = loginVC
+        }
+        
+        window?.makeKeyAndVisible()
     }
 
     func applicationWillResignActive(application: UIApplication) {
