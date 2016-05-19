@@ -35,6 +35,12 @@
                                 <constraint firstAttribute="width" constant="60" id="0DF-Cx-2Ba"/>
                                 <constraint firstAttribute="height" constant="60" id="oaw-bi-Rsx"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="30"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            </userDefinedRuntimeAttributes>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_list_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="aur-rQ-cZL">
                             <rect key="frame" x="350" y="90" width="10" height="20"/>

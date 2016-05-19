@@ -36,10 +36,14 @@ class NBSQLDataManagerTool: NSObject {
         let sql = "CREATE TABLE IF NOT EXISTS T_Product( \n" +
             "id INTEGER IDENTITY(1,1) PRIMARY KEY, \n" +
             "productId TEXT, \n" +
+            "name TEXT, \n" +
+            "image TEXT, \n" +
+            "code TEXT, \n" +
+            "desc TEXT, \n" +
             "price MONEY, \n" +
             "addNum INTEGER, \n" +
             "userId TEXT,\n" +
-            "createDate TEXT NOT NULL DEFAULT (datetime('now', 'localtime')) \n" +
+            "addDate TEXT NOT NULL DEFAULT (datetime('now', 'localtime')) \n" +
         "); \n"
         
         // 2.执行SQL语句

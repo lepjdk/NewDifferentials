@@ -10,19 +10,19 @@ import UIKit
 
 class NBOrderStatusModel: NSObject {
 
-    var buyerClosedOrderCount : Int = -1
-    var buyerShipOrderCount : Int = -1
-    var buyerShopOrderCount : Int = -1
-    var buyerWaitingOrderCount : Int = -1
-    var buyerWaitingPayOrderCount : Int = -1
-    var monthlyOrderMoney : Int = -1
-    var monthlyRetailMoney : Int = -1
-    var monthlySaleMoney : Int = -1
-    var sellerClosedOrderCount : Int = -1
-    var sellerShipOrderCount : Int = -1
-    var sellerShopOrderCount : Int = -1
-    var sellerWaitingOrderCount : Int = -1
-    var sellerWaitingPayOrderCount : Int = -1
+    var buyerClosedOrderCount : Int = 0
+    var buyerShipOrderCount : Int = 0
+    var buyerShopOrderCount : Int = 0
+    var buyerWaitingOrderCount : Int = 0
+    var buyerWaitingPayOrderCount : Int = 0
+    var monthlyOrderMoney : Int = 0
+    var monthlyRetailMoney : Int = 0
+    var monthlySaleMoney : Int = 0
+    var sellerClosedOrderCount : Int = 0
+    var sellerShipOrderCount : Int = 0
+    var sellerShopOrderCount : Int = 0
+    var sellerWaitingOrderCount : Int = 0
+    var sellerWaitingPayOrderCount : Int = 0
     
     init(dict : [String : AnyObject])
     {

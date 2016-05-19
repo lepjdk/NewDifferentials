@@ -16,18 +16,18 @@ class NBUserModel: NSObject {
     var head : String?
     var idCard : String?
     var levelId : String?
-    var levelIndex : Int = -1
-    var male : Int = -1
-    var nextCredit : Int = -1
+    var levelIndex : Int = 0
+    var male : Int = 0
+    var nextCredit : Int = 0
     var nextLevelName : String?
     var nickName : String?
     var orderStat : NBOrderStatusModel?
     var qq : String?
-    var rank : Int = -1
-    var sortIndex : String?
+    var rank : Int = 0
+    var sortIndex : Int = 0
     var trueName : String?
     var wechat : String?
-    var credit : Int = -1
+    var credit : Int = 0
     var email : String?
     
     init(dict : [String : AnyObject])

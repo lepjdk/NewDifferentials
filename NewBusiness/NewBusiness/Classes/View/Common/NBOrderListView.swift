@@ -15,6 +15,7 @@ class NBOrderListView: UIView {
     @IBOutlet weak var receiveGooded: UILabel!
     @IBOutlet weak var sendgooded: UILabel!
     @IBOutlet weak var sendGoodingLabel: UILabel!
+    @IBOutlet weak var waitingDealLabel: UILabel!
     private var isLoadView : Bool = true
     
     //MARK:--事件监听
@@ -50,6 +51,32 @@ class NBOrderListView: UIView {
     class func orderListView() -> NBOrderListView
     {
         return NSBundle.mainBundle().loadNibNamed("NBOrderListView", owner: nil, options: nil).first as! NBOrderListView
+    }
+    func updateView(model : NBOrderStatusModel, isSeller : Bool)
+    {
+        if isSeller == true
+        {
+            waitingDealLabel.text = "待收款"
+            confirmingLable.text = NSString(format: "%d", model.sellerWaitingOrderCount) as String
+            paymentingLabel.text = NSString(format: "%d", model.sellerWaitingPayOrderCount) as String
+            receiveGooded.text = NSString(format: "%d", model.sellerShopOrderCount) as String
+            sendgooded.text = NSString(format: "%d", model.sellerShipOrderCount) as String
+            sendGoodingLabel.text = NSString(format: "%d", model.sellerClosedOrderCount) as String
+        }
+        else
+        {
+            waitingDealLabel.text = "待付款"
+            confirmingLable.text = NSString(format: "%d", model.buyerWaitingOrderCount) as String
+            paymentingLabel.text = NSString(format: "%d", model.buyerWaitingPayOrderCount) as String
+            receiveGooded.text = NSString(format: "%d", model.buyerShopOrderCount) as String
+            sendgooded.text = NSString(format: "%d", model.buyerShipOrderCount) as String
+            sendGoodingLabel.text = NSString(format: "%d", model.buyerClosedOrderCount) as String
+        }
+        confirmingLable.hidden = (confirmingLable.text?.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) <= 0 || confirmingLable.text == "0")
+        paymentingLabel.hidden = (paymentingLabel.text?.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) <= 0 || paymentingLabel.text == "0")
+        receiveGooded.hidden = (receiveGooded.text?.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) <= 0 || receiveGooded.text == "0")
+        sendgooded.hidden = (sendgooded.text?.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) <= 0 || sendgooded.text == "0")
+        sendGoodingLabel.hidden = (sendGoodingLabel.text?.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) <= 0 || sendGoodingLabel.text == "0")
     }
     /*
     override func layoutSubviews() {

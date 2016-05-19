@@ -12,6 +12,8 @@ class NBProductDataUtil: NSObject {
 
     static let shareUtil = NBProductDataUtil()
     
+    var productData : NBProductListModel?
+    
     private var userID : String? = {
        let str = NBUserUtil.shareUser.getUserInfo()
        let strData = str as? NSDictionary
@@ -74,7 +76,6 @@ class NBProductDataUtil: NSObject {
      */
     private func lookOutproduct(userId : String, productId : String) -> Bool
     {
-        NSLog("%@--%@", userId, userID!)
         var flag = false
         // 1.编写SQL语句
         let sql = "SELECT * FROM T_Product \n" +
@@ -141,7 +142,6 @@ class NBProductDataUtil: NSObject {
             return 0
         }
         var number = 0
-        NSLog("%@--%@", userId, userID!)
         // 1.编写SQL语句
         let sql = "SELECT * FROM T_Product \n" +
             "WHERE \n" +
@@ -176,20 +176,24 @@ class NBProductDataUtil: NSObject {
     {
         // 1.准备数据
         let productid = data.id
+        let name = data.name
+        let image = data.thumbImg
+        let code = data.brand
+        let desc = data.detail
         let price = data.price
         let Num = 0
 
         // 2.编写SQL语句
         let sql = "INSERT INTO T_Product" +
-            "(productId, price, addNum, userId)" +
+            "(productId, name, image, code, desc, price, addNum, userId)" +
             "VALUES" +
-        "(?, ?, ?, ?);"
+        "(?, ?, ?, ?, ?, ?, ?, ?);"
         
         // 3.执行SQL语句
         NBSQLDataManagerTool.shareManager.dbQueue.inTransaction({ (db, rollback) -> Void in
             
             do{
-                try db.executeUpdate(sql, values: [productid!, price, Num, userId])
+                try db.executeUpdate(sql, values: [productid!, name!, image!, code!, desc!, price, Num, userId])
             }catch {
                 // 回滚
                 rollback.memory = true
@@ -227,5 +231,83 @@ class NBProductDataUtil: NSObject {
                 rollback.memory = true
             }
         })
+    }
+    /**
+     *更新产品数据
+     */
+    func updateProductDataSql(data : NBChatSQLDataModel)
+    {
+        // 1.准备数据
+        guard let userId = userID else {
+            return
+        }
+        guard let productId = data.productId else
+        {
+            return
+        }
+        let number = data.amount
+        // 2.编写SQL语句
+        let sql = "UPDATE T_Product \n" +
+            "SET addNum = \(number) \n" +
+            "WHERE \n" +
+            "productId = '\(productId)' \n" +
+        "AND userId = '\(userId)' ;"
+        
+        // 3.执行SQL语句
+        NBSQLDataManagerTool.shareManager.dbQueue.inTransaction({ (db, rollback) -> Void in
+            
+            do{
+                try db.executeUpdate(sql, values: nil)
+            }catch {
+                // 回滚
+                rollback.memory = true
+            }
+        })
+    }
+    /**
+    *获取购物车数据
+    */
+    func getShopChatData() -> NSArray
+    {
+        let arrM = NSMutableArray()
+        guard let userId = userID else {
+            return arrM
+        }
+        // 1.编写SQL语句
+        let sql = "SELECT * FROM T_Product \n" +
+            "WHERE \n" +
+            "addNum > 0 \n" +
+        "AND userId = '\(userId)' ;"
+        
+        // 2.执行SQL语句
+        // 注意点: FMDB的inDatabase的block(闭包)不是异步执行的
+        NBSQLDataManagerTool.shareManager.dbQueue.inDatabase { (db) -> Void in
+            // 2.1执行查询语句
+            let result = db.executeQuery(sql, withArgumentsInArray: nil)
+            NSLog("%@", result)
+            if result == nil
+            {
+                return
+            }
+            else
+            {
+                while result.next()
+                {
+                    let dictM = NSMutableDictionary()
+                    dictM["productId"] = result.stringForColumn("productId")
+                    dictM["name"] = result.stringForColumn("name")
+                    dictM["image"] = result.stringForColumn("image")
+                    dictM["code"] = result.stringForColumn("code")
+                    dictM["desc"] = result.stringForColumn("desc")
+                    dictM["userId"] = result.stringForColumn("userId")
+                    dictM["price"] = result.stringForColumn("price")
+                    dictM["amount"] = result.stringForColumn("addNum")
+                    dictM["addDate"] = result.stringForColumn("addDate")
+                    
+                    arrM.addObject(dictM)
+                }
+            }
+        }
+        return arrM
     }
 }

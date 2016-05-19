@@ -24,9 +24,20 @@ class NBAFNManagerTool: NSObject {
     //给闭包取别名
     typealias resultCallBack = (task : NSURLSessionDataTask?, result : AnyObject? , error : NSError?)->()
     
+    //get请求
     private func getRequst(strUrl : String, parameters: AnyObject?, finished : resultCallBack)
     {
         sessionManager.GET(strUrl, parameters: parameters, progress: nil, success: { (task : NSURLSessionDataTask, respodData : AnyObject?) -> Void in
+            finished(task: task, result: respodData, error: nil)
+            }, failure: { (task : NSURLSessionDataTask?, error : NSError) -> Void in
+                finished(task: task, result: nil, error: error)
+        })
+    }
+    
+    //post请求
+    private func postRequst(strUrl : String, parameters: AnyObject?, finished : resultCallBack)
+    {
+        sessionManager.POST(strUrl, parameters: parameters, progress: nil, success: { (task : NSURLSessionDataTask, respodData : AnyObject?) -> Void in
             finished(task: task, result: respodData, error: nil)
             }, failure: { (task : NSURLSessionDataTask?, error : NSError) -> Void in
                 finished(task: task, result: nil, error: error)
@@ -40,11 +51,17 @@ extension NBAFNManagerTool
     func loginSession(parameters: AnyObject?, finished : resultCallBack)
     {
         let path = "/api/user/login"
-        sessionManager.POST(path, parameters: parameters, progress: nil, success: { (task : NSURLSessionDataTask, respodData : AnyObject?) -> Void in
-                finished(task: task, result: respodData, error: nil)
-            }, failure: { (task : NSURLSessionDataTask?, error : NSError) -> Void in
-                finished(task: task, result: nil, error: error)
-        })
+        postRequst(path, parameters: parameters, finished: finished)
+    }
+}
+
+//购物车请求
+extension NBAFNManagerTool
+{
+    func shopChatList(parameters: AnyObject?, finished : resultCallBack)
+    {
+        let path = "/api/product/refreshShoppingCart"
+        postRequst(path, parameters: parameters, finished: finished)
     }
 }
 
@@ -63,6 +80,28 @@ extension NBAFNManagerTool
     func listProductList(parameters: AnyObject?, finished : resultCallBack)
     {
         let path = "/api/product/list"
+        getRequst(path, parameters: parameters, finished: finished)
+    }
+}
+//产品详情
+extension NBAFNManagerTool
+{
+    func productDetail(parameters: AnyObject?, finished : resultCallBack)
+    {
+        guard let dict = parameters as? NSDictionary else
+        {
+            return
+        }
+        let path = NSString(format: "/api/product/get/%@", dict["id"] as! String) as String
+        getRequst(path, parameters: parameters, finished: finished)
+    }
+}
+//活动
+extension NBAFNManagerTool
+{
+    func activityList(parameters: AnyObject?, finished : resultCallBack)
+    {
+        let path = "/api/product/listHotProducts"
         getRequst(path, parameters: parameters, finished: finished)
     }
 }

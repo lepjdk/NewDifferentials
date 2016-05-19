@@ -12,6 +12,7 @@ class NBShopViewController: NBBaseViewController {
 
     let screenW = UIScreen.mainScreen().bounds.size.width
     let screenH = UIScreen.mainScreen().bounds.size.height
+    
     //MARK:--生命周期方法
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +29,10 @@ class NBShopViewController: NBBaseViewController {
         
         //监听通知
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("tittleViewBtnChanged:"), name: "keyNotifyShop", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("addProductClick:"), name: "keyAddProductNotify", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("delProductClick:"), name: "keyDelProductNotify", object: nil)
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("addProductClick:"), name: "keyAddProductNotify", object: nil)
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("delProductClick:"), name: "keyDelProductNotify", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("changeProductClick:"), name: "keyChangeProductNotify", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("didselectCell:"), name: "keyDidSelectCellNotify", object: nil)
     }
 
     
@@ -40,7 +43,7 @@ class NBShopViewController: NBBaseViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.tabBarController?.tabBar.hidden = false
+//        self.tabBarController?.tabBar.hidden = false
         let num =  NBProductDataUtil.shareUtil.searchAllProduct()
         numberChange(num)
         
@@ -63,6 +66,18 @@ class NBShopViewController: NBBaseViewController {
     
     }
     //监听头部按钮切换点击事件
+    func didselectCell(notify : NSNotification)
+    {
+        let info = notify.userInfo! as NSDictionary
+        let data = info["dataItem"] as! NBProductListModel
+        
+        let productDetailVC : NBProductDetailViewController = NBProductDetailViewController()
+        productDetailVC.productData = data
+//        self.tabBarController?.tabBar.hidden = true
+//        self.navigationController?.hidesBottomBarWhenPushed = true
+        productDetailVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(productDetailVC, animated: true)
+    }
     func tittleViewBtnChanged(notify : NSNotification)
     {
         let info = notify.userInfo! as NSDictionary
@@ -78,8 +93,26 @@ class NBShopViewController: NBBaseViewController {
                 
         }
     }
+    /*
     //商品数量增加
     func addProductClick(notify : NSNotification)
+    {
+        //1.执行动画
+        changeAnimation()
+        //2.改变数量
+        changeProductNumber(notify)
+    }
+    //商品数量减少
+    func delProductClick(notify : NSNotification)
+    {
+        //1.执行动画
+        changeAnimation()
+        //2.改变数量
+        changeProductNumber(notify)
+    }
+    */
+    //商品数量改变
+    func changeProductClick(notify : NSNotification)
     {
         //1.执行动画
         changeAnimation()
@@ -99,12 +132,17 @@ class NBShopViewController: NBBaseViewController {
     //改变数字
     private func changeProductNumber(notify : NSNotification)
     {
+        /*
         let info = notify.userInfo! as NSDictionary
         guard let number = info["number"]?.integerValue else
         {
             return
         }
         numberChange(number)
+        */
+        let num =  NBProductDataUtil.shareUtil.searchAllProduct()
+        numberChange(num)
+
     }
     private func numberChange(num : Int)
     {
@@ -117,11 +155,24 @@ class NBShopViewController: NBBaseViewController {
         }
         else
         {
+            if num == 0 {
+                budgeLabel.hidden = true
+            }
+            else
+            {
+                budgeLabel.hidden = false
+            }
             var rect = budgeLabel.frame
             rect.size.width = 20
             budgeLabel.frame = rect
             budgeLabel.text = NSString(format: "%d", num) as String
         }
+    }
+    @objc private func tobuyShopClick()
+    {
+        let chatShopVC = NBShopChatViewController()
+        chatShopVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(chatShopVC, animated: true)
     }
     //MARK ：－－懒加载
     private lazy var shopTitleView : NBShopTittleView = {
@@ -144,6 +195,7 @@ class NBShopViewController: NBBaseViewController {
         let chatBtn = UIButton()
         chatBtn.setImage(UIImage(named: "ic_nav_cart"), forState: .Normal)
         chatBtn.setImage(UIImage(named: "ic_nav_cart"), forState: .Highlighted)
+        chatBtn.addTarget(self, action: Selector("tobuyShopClick"), forControlEvents: .TouchUpInside)
         chatBtn.frame = bgView.bounds
         chatBtn.sizeToFit()
         bgView.addSubview(chatBtn)
@@ -205,8 +257,8 @@ class NBShopViewController: NBBaseViewController {
 extension NBShopViewController : SearchViewDelegate
 {
     func didClickSearchBtn() {
-        self.tabBarController?.tabBar.hidden = true
         let searchVC = NBSearchViewController()
+        searchVC.tabBarController?.tabBar.hidden = true
         self.navigationController?.pushViewController(searchVC, animated: true)
     }
 }

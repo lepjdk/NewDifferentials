@@ -23,7 +23,7 @@ class NBProductListModel: NSObject {
     var brand : String?
     var detail : String?
     var info : String?
-    var marketPrice : Int = -1
+    var marketPrice : Double = 0.0
     var name : String?
     var price : Double = 0.0
     var shareText : String?

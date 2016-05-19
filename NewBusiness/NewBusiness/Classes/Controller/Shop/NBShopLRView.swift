@@ -13,6 +13,7 @@ class NBShopLRView: UIView {
     private let leftCell = "shopLeft"
     private let rightCell = "shopRight"
     
+    private var selectIndexPath : NSIndexPath?
     private let categoryRefresh  = NBMJRefreshTool()
     private let productRefresh = NBMJRefreshTool()
     
@@ -29,9 +30,15 @@ class NBShopLRView: UIView {
         leftTableView.registerNib(UINib.init(nibName: "NBShopLeftCell", bundle: nil), forCellReuseIdentifier: leftCell)
         rightTableView.registerNib(UINib.init(nibName: "NBShopRightCell", bundle: nil), forCellReuseIdentifier: rightCell)
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("changeProduct:"), name: "keyChangeProductNotify", object: nil)
+        
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    deinit
+    {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     //MAKR:--内部控制方法
     private func setUpChildView()
@@ -58,6 +65,46 @@ class NBShopLRView: UIView {
         //开始刷新
         categoryRefresh.reloadData()
     }
+    //更新事件
+    @objc private func changeProduct(info : NSNotification)
+    {
+        /*
+        guard let indexPath = selectIndexPath else
+        {
+            return
+        }
+        let cell = rightTableView.cellForRowAtIndexPath(indexPath) as! NBShopRightCell
+        cell.dataItem = NBProductDataUtil.shareUtil.productData
+        */
+        let infoData = info.userInfo! as NSDictionary
+        guard let num = infoData["number"] as? Int else
+        {
+            return
+        }
+        guard let productID = infoData["productId"] as? String else
+        {
+            return
+        }
+        chooseProduct(productID, num: num)
+        
+    }
+    private func chooseProduct(productStr : String, num : Int)
+    {
+        if productRefresh.dataList.count <= 0
+        {
+            return
+        }
+        for var i = 0; i < productRefresh.dataList.count; i++
+        {
+            let item = productRefresh.dataList[i] as! NBProductListModel
+            if item.id == productStr
+            {
+                item.addNumber = num
+                break
+            }
+        }
+        rightTableView.reloadData()
+    }
     //分类产品数据加载
     private func loadCategoryData()
     {
@@ -75,7 +122,7 @@ class NBShopLRView: UIView {
                 let message = requestData["message"]
                 let code = requestData["code"]?.integerValue
                 if code == 0 {
-                   wkself!.categoryRefresh.dataList = NBModelTool.objectArrayWithKeyValuesArray(NBCategoryModel.classForCoder(), keyValuesArray: data as! NSArray)
+                   wkself!.categoryRefresh.dataList = NBModelTool.modelObjectArrayWithKeyValuesArray(NBCategoryModel.classForCoder(), keyValuesArray: data as! NSArray)
                     wkself?.categoryRefresh.tableView?.reloadData()
                     if wkself?.selectCategory == nil
                     {
@@ -115,12 +162,12 @@ class NBShopLRView: UIView {
             if error == nil
             {
                 let requestData = result as! NSDictionary
-                NSLog("%@", requestData)
+                NSLog("___%@___", requestData)
                 let data = requestData["data"]
                 let message = requestData["message"]
                 let code = requestData["code"]?.integerValue
                 if code == 0 {
-                    wkself!.productRefresh.dataList = NBModelTool.objectArrayWithKeyValuesArray(NBProductListModel.classForCoder(), keyValuesArray: data as! NSArray)
+                    wkself!.productRefresh.dataList = NBModelTool.modelObjectArrayWithKeyValuesArray(NBProductListModel.classForCoder(), keyValuesArray: data as! NSArray)
                     NSLog("%@", wkself!.productRefresh.dataList)
                     //缓存数据
                     NBProductDataUtil.shareUtil.cacheInsertProduct(wkself!.productRefresh.dataList)
@@ -250,6 +297,9 @@ extension NBShopLRView : UITableViewDelegate
         else if tableView == rightTableView
         {
             NSLog("rightView")
+            NBProductDataUtil.shareUtil.productData = self.productRefresh.dataList[indexPath.row] as? NBProductListModel
+            selectIndexPath = indexPath
+        NSNotificationCenter.defaultCenter().postNotificationName("keyDidSelectCellNotify", object: nil, userInfo: ["dataItem" : self.productRefresh.dataList[indexPath.row]])
         }
         NSLog("hello")
     }

@@ -27,19 +27,23 @@ class NBShopRightCell: UITableViewCell {
             //"¥ " 库存: 10000
             productPrice.text = NSString(format: "¥ %.1lf", (dataItem?.price)!) as String
             productNumber.text = NSString(format: "库存: %d", (dataItem?.stock)!) as String
-            let num =  NBProductDataUtil.shareUtil.searchProduct(dataItem!)
+            var num = dataItem?.addNumber
             if num <= 0
             {
-                deleteBtn.hidden = true
-                addNumber.hidden = true
+                num =  NBProductDataUtil.shareUtil.searchProduct(dataItem!)
+                if num <= 0
+                {
+                    deleteBtn.hidden = true
+                    addNumber.hidden = true
+                }
+                else
+                {
+                    deleteBtn.hidden = false
+                    addNumber.hidden = false
+                }
+                dataItem?.addNumber = num!
             }
-            else
-            {
-                deleteBtn.hidden = false
-                addNumber.hidden = false
-            }
-            dataItem?.addNumber = num
-            addNumber.text = NSString(format: "%d", num) as String
+            addNumber.text = NSString(format: "%d", num!) as String
         }
     }
     override func awakeFromNib() {
@@ -65,6 +69,7 @@ class NBShopRightCell: UITableViewCell {
         //更新数据操作
         addChangeAnimation(sender)
     }
+    
     //更新数据操作
     private func updateData(sender: UIButton)
     {
@@ -81,7 +86,6 @@ class NBShopRightCell: UITableViewCell {
             {
                 addBtn.hidden = false
             }
-        NSNotificationCenter.defaultCenter().postNotificationName("keyAddProductNotify", object: nil, userInfo: ["number" : (dataItem?.addNumber)!, "cell" : self])
         }
         else if sender == deleteBtn
         {
@@ -97,11 +101,13 @@ class NBShopRightCell: UITableViewCell {
                 deleteBtn.hidden = false
                 addNumber.hidden = false
             }
-        NSNotificationCenter.defaultCenter().postNotificationName("keyDelProductNotify", object: nil, userInfo: ["number" : (dataItem?.addNumber)!])
         }
-        addNumber.text = NSString(format: "%d", (dataItem?.addNumber)!) as String
         //更新数据
         NBProductDataUtil.shareUtil.updateProductData(dataItem!)
+        NBProductDataUtil.shareUtil.productData = dataItem
+        NSNotificationCenter.defaultCenter().postNotificationName("keyChangeProductNotify", object: nil, userInfo: ["number" : (dataItem?.addNumber)!, "productId" : (dataItem?.id)!])
+        addNumber.text = NSString(format: "%d", (dataItem?.addNumber)!) as String
+        
     }
     
     //动画

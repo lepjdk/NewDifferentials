@@ -51,6 +51,17 @@ class NBUserUtil: NSObject {
         let value = NSUserDefaults.standardUserDefaults().valueForKey(keyUserInfo)
         return value
     }
+    //用户信息转模型
+    func getUserModelInfo() ->NBUserModel?
+    {
+        guard let value = getUserInfo() as? NSDictionary else
+        {
+            return nil
+        }
+        NSLog("%@", value)
+        let model = NBUserModel.init(dict: value as! [String : AnyObject])
+        return model
+    }
     //判断用户是否已经登录
     func isLogin() -> Bool
     {

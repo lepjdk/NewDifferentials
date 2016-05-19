@@ -23,11 +23,29 @@ class NBMeViewController: NBBaseViewController {
     @IBOutlet weak var sealerInfoBtn: UIButton!     //经销商信息
     @IBOutlet weak var orderListView: UIView!
     
+    var userInfo : NBUserModel?
+        {
+        didSet
+        {
+            NBWebImageTool.shareTool.setImageViewWithImage(avatarIcon, urlStr: userInfo?.head, placeholderImage: "img_default_avatar")
+            userNameLabel.text = userInfo?.nickName
+            phoneNumberLabel.text = userInfo?.phone
+            differStandLabel.text = updateDifferStandText()
+            standingLabel.text = NSString(format: "%d", userInfo?.credit == nil ? "" : userInfo!.credit) as String
+            dealerRankLabel.text = NSString(format: "%d", (userInfo?.rank)!) as String
+            sealerInfoBtn.setTitle(userInfo?.levelName, forState: .Normal)
+            sealerInfoBtn.setImage(updateLevelIcon(), forState: .Normal)
+            orderView.updateView((userInfo?.orderStat)!, isSeller: false)
+        }
+    }
+    
     //MARK:--生命周期方法
     override func viewDidLoad() {
         super.viewDidLoad()
         //初始化控件
         setUpView()
+        //获取用户数据
+        userInfo = NBUserUtil.shareUser.getUserModelInfo()
        
     }
     override func viewWillAppear(animated: Bool) {
@@ -76,9 +94,48 @@ class NBMeViewController: NBBaseViewController {
         let image = UIGraphicsGetImageFromCurrentImageContext()
         self.navigationController?.navigationBar.shadowImage = image
     }
-    private func signInClick()
+    private func updateLevelIcon() -> UIImage?
+    {
+        /*
+        #define KWMLevelId_PartnerCore                        @"4e3e2973-26ce-47cf-9854-aef62df4f3cb"     //核心合伙人
+        #define KWMLevelId_Partner                            @"e8b067ee-eaed-44dd-a934-008316e37a2b"     //合伙人
+        #define KWMLevelId_OperationalDepartment              @"43e54225-9c94-4086-8120-f01b6d684ee4"     //运营部
+        #define KWMLevelId_SoleDistributorGeneral             @"0d04070b-f8da-4168-952b-e54eee6880ab"     //总经销商
+        #define KWMLevelId_SoleDistributorCore                @"06249f0e-d645-4330-b7f8-95225fe7bc48"     //核心经销商
+        #define KWMLevelId_SoleDistributorSpecial             @"07438e7e-ac33-45f5-b1ec-03ac3be1c4d9"     //特约经销商
+        #define KWMLevelId_SoleDistributorAuthorization       @"b742aada-44a5-49a0-a053-e84520bb0835"     //授权经销商
+        */
+        let iconDict = ["4e3e2973-26ce-47cf-9854-aef62df4f3cb" : "ic_corepartner", "e8b067ee-eaed-44dd-a934-008316e37a2b" : "ic_partner", "43e54225-9c94-4086-8120-f01b6d684ee4" : "ic_operation", "0d04070b-f8da-4168-952b-e54eee6880ab" : "ic_alldealer", "06249f0e-d645-4330-b7f8-95225fe7bc48" : "ic_coredealers", "07438e7e-ac33-45f5-b1ec-03ac3be1c4d9" : "ic_dealer", "b742aada-44a5-49a0-a053-e84520bb0835" : "ic_authorized"] as NSDictionary
+        guard let levelStr = userInfo?.levelId else
+        {
+            return nil
+        }
+        guard let imageStr = iconDict.valueForKey(levelStr) else
+        {
+            return nil
+        }
+        guard let image = UIImage(named: imageStr as! String) else
+        {
+            return nil
+        }
+        return image
+    }
+    private func updateDifferStandText() -> String
+    {
+        var text = "积分数据出错,请重新登录"
+        let creditBalance = (userInfo?.nextCredit)! - (userInfo?.credit)!
+        if creditBalance <= 0
+        {
+            text = NSString(format: "已达到%@的积分", (userInfo?.nextLevelName)!) as String
+            return text
+        }
+        text = NSString(format: "距离升级到%@还差%lld个积分", (userInfo?.nextLevelName)!, creditBalance) as String
+        return text
+    }
+    @objc private func signInClick()
     {
         NSLog("签到")
+        NSLog("hello")
     }
     //MARK:--事件处理方法
     //用户详情点击

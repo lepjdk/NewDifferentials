@@ -11,14 +11,26 @@ import UIKit
 class NBSaleViewController: NBBaseViewController {
 
     //MARK:--属性变量
-    //订单列表视图
+    //总销售额
     @IBOutlet weak var tottalSalesLabel: UILabel!
     //我的月零售额
     @IBOutlet weak var meRetailMothSalesLabel: UILabel!
     //团队月销售额
     @IBOutlet weak var teamMothSalesLabel: UILabel!
-    //总销售额
+    //订单列表视图
     @IBOutlet weak var orderViewList: UIView!
+    
+    var userInfo : NBUserModel?
+    {
+        didSet
+        {
+            teamMothSalesLabel.text = NSString(format: "%d", (userInfo?.orderStat?.monthlySaleMoney)!) as String
+            meRetailMothSalesLabel.text = NSString(format: "%d", (userInfo?.orderStat?.monthlyRetailMoney)!) as String
+            let tottalMoney = (userInfo?.orderStat?.monthlySaleMoney)! + (userInfo?.orderStat?.monthlyRetailMoney)!
+            tottalSalesLabel.text = NSString(format: "%d", tottalMoney) as String
+            orderView.updateView((userInfo?.orderStat)!, isSeller: true)
+        }
+    }
     
     //MARK:--生命周期方法
     override func viewDidLoad() {
@@ -27,6 +39,8 @@ class NBSaleViewController: NBBaseViewController {
         //设置订单列表
         orderViewList.addSubview(orderView)
         orderView.frame = orderViewList.bounds
+        //获取用户数据
+        userInfo = NBUserUtil.shareUser.getUserModelInfo()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

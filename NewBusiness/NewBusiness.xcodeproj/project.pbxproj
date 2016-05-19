@@ -32,6 +32,10 @@
 		1710BEE61CD06DFC00EC95DA /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1710BEE51CD06DFC00EC95DA /* libsqlite3.tbd */; };
 		1710BEE81CD06E6C00EC95DA /* NBSQLDataManagerTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1710BEE71CD06E6C00EC95DA /* NBSQLDataManagerTool.swift */; };
 		1710BEEA1CD0A39500EC95DA /* NBProductDataUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1710BEE91CD0A39500EC95DA /* NBProductDataUtil.swift */; };
+		1711713F1CE5B80F00FE7741 /* NBShopChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1711713E1CE5B80F00FE7741 /* NBShopChatModel.swift */; };
+		171171411CE5C1E600FE7741 /* NBChatSQLDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171171401CE5C1E600FE7741 /* NBChatSQLDataModel.swift */; };
+		171800381CDAF599004487F0 /* NBProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171800361CDAF599004487F0 /* NBProductDetailViewController.swift */; };
+		171800391CDAF599004487F0 /* NBProductDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 171800371CDAF599004487F0 /* NBProductDetailViewController.xib */; };
 		173E0D091CB75252009BBBEC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 173E0D071CB75252009BBBEC /* Main.storyboard */; };
 		173E0D0B1CB75252009BBBEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 173E0D0A1CB75252009BBBEC /* Assets.xcassets */; };
 		173E0D0E1CB75252009BBBEC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 173E0D0C1CB75252009BBBEC /* LaunchScreen.storyboard */; };
@@ -74,6 +78,8 @@
 		1793AF911CCA28DA004CA082 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 1793AF7D1CCA28DA004CA082 /* UIScrollView+MJRefresh.m */; };
 		1793AF921CCA28DA004CA082 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1793AF7F1CCA28DA004CA082 /* UIView+MJExtension.m */; };
 		1793AF941CCA2B72004CA082 /* NBMJRefreshTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1793AF931CCA2B72004CA082 /* NBMJRefreshTool.swift */; };
+		17F4AA681CDC766D0031C141 /* NBPictureTurnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F4AA671CDC766D0031C141 /* NBPictureTurnView.swift */; };
+		17F4AA6A1CDC7DD80031C141 /* NBPictureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F4AA691CDC7DD80031C141 /* NBPictureCollectionViewCell.swift */; };
 		17FEAED91CBC8933008FD7F7 /* NBShopLeftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FEAED71CBC8933008FD7F7 /* NBShopLeftCell.swift */; };
 		17FEAEDA1CBC8933008FD7F7 /* NBShopLeftCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17FEAED81CBC8933008FD7F7 /* NBShopLeftCell.xib */; };
 		17FEAEDD1CBC8955008FD7F7 /* NBShopRightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FEAEDB1CBC8955008FD7F7 /* NBShopRightCell.swift */; };
@@ -81,6 +87,10 @@
 		17FEAEE01CBCA97E008FD7F7 /* NBShopTittleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FEAEDF1CBCA97E008FD7F7 /* NBShopTittleView.swift */; };
 		17FEAEE21CBCE668008FD7F7 /* NBBadgeBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FEAEE11CBCE668008FD7F7 /* NBBadgeBarButtonItem.swift */; };
 		17FEAEE41CBCFD8E008FD7F7 /* NBActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FEAEE31CBCFD8E008FD7F7 /* NBActivityView.swift */; };
+		17FF65E21CE1D78500E64570 /* NBActivityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FF65E11CE1D78500E64570 /* NBActivityModel.swift */; };
+		17FF65E51CE1E1D100E64570 /* NBActivityListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FF65E31CE1E1D100E64570 /* NBActivityListCell.swift */; };
+		17FF65E61CE1E1D100E64570 /* NBActivityListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17FF65E41CE1E1D100E64570 /* NBActivityListCell.xib */; };
+		17FF65E81CE1E8D800E64570 /* NBShopChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FF65E71CE1E8D800E64570 /* NBShopChatViewController.swift */; };
 		17FFA8021CCF38F6004A31F7 /* NBCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FFA8011CCF38F6004A31F7 /* NBCategoryModel.swift */; };
 		17FFA8191CCF3B11004A31F7 /* MJExtensionConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FFA8061CCF3B11004A31F7 /* MJExtensionConst.m */; };
 		17FFA81A1CCF3B11004A31F7 /* MJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FFA8081CCF3B11004A31F7 /* MJFoundation.m */; };
@@ -111,6 +121,9 @@
 		17FFA8571CCF54CD004A31F7 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FFA8461CCF54CD004A31F7 /* UIImageView+WebCache.m */; };
 		17FFA8581CCF54CD004A31F7 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FFA8481CCF54CD004A31F7 /* UIView+WebCacheOperation.m */; };
 		17FFA85A1CCF54E5004A31F7 /* NBWebImageTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FFA8591CCF54E5004A31F7 /* NBWebImageTool.swift */; };
+		17FFB7751CE2FFD40024DD57 /* NBShopChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17FFB7741CE2FFD40024DD57 /* NBShopChatViewController.xib */; };
+		17FFB7781CE307E00024DD57 /* NBShopChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FFB7761CE307E00024DD57 /* NBShopChatCell.swift */; };
+		17FFB7791CE307E00024DD57 /* NBShopChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17FFB7771CE307E00024DD57 /* NBShopChatCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -152,6 +165,10 @@
 		1710BEE51CD06DFC00EC95DA /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		1710BEE71CD06E6C00EC95DA /* NBSQLDataManagerTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBSQLDataManagerTool.swift; sourceTree = "<group>"; };
 		1710BEE91CD0A39500EC95DA /* NBProductDataUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBProductDataUtil.swift; sourceTree = "<group>"; };
+		1711713E1CE5B80F00FE7741 /* NBShopChatModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBShopChatModel.swift; sourceTree = "<group>"; };
+		171171401CE5C1E600FE7741 /* NBChatSQLDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBChatSQLDataModel.swift; sourceTree = "<group>"; };
+		171800361CDAF599004487F0 /* NBProductDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBProductDetailViewController.swift; sourceTree = "<group>"; };
+		171800371CDAF599004487F0 /* NBProductDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NBProductDetailViewController.xib; sourceTree = "<group>"; };
 		173E0D001CB75252009BBBEC /* NewBusiness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewBusiness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		173E0D081CB75252009BBBEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		173E0D0A1CB75252009BBBEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -215,6 +232,8 @@
 		1793AF7E1CCA28DA004CA082 /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
 		1793AF7F1CCA28DA004CA082 /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
 		1793AF931CCA2B72004CA082 /* NBMJRefreshTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBMJRefreshTool.swift; sourceTree = "<group>"; };
+		17F4AA671CDC766D0031C141 /* NBPictureTurnView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBPictureTurnView.swift; sourceTree = "<group>"; };
+		17F4AA691CDC7DD80031C141 /* NBPictureCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBPictureCollectionViewCell.swift; sourceTree = "<group>"; };
 		17FEAED71CBC8933008FD7F7 /* NBShopLeftCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBShopLeftCell.swift; sourceTree = "<group>"; };
 		17FEAED81CBC8933008FD7F7 /* NBShopLeftCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NBShopLeftCell.xib; sourceTree = "<group>"; };
 		17FEAEDB1CBC8955008FD7F7 /* NBShopRightCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBShopRightCell.swift; sourceTree = "<group>"; };
@@ -222,6 +241,10 @@
 		17FEAEDF1CBCA97E008FD7F7 /* NBShopTittleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBShopTittleView.swift; sourceTree = "<group>"; };
 		17FEAEE11CBCE668008FD7F7 /* NBBadgeBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBBadgeBarButtonItem.swift; sourceTree = "<group>"; };
 		17FEAEE31CBCFD8E008FD7F7 /* NBActivityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBActivityView.swift; sourceTree = "<group>"; };
+		17FF65E11CE1D78500E64570 /* NBActivityModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBActivityModel.swift; sourceTree = "<group>"; };
+		17FF65E31CE1E1D100E64570 /* NBActivityListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBActivityListCell.swift; sourceTree = "<group>"; };
+		17FF65E41CE1E1D100E64570 /* NBActivityListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NBActivityListCell.xib; sourceTree = "<group>"; };
+		17FF65E71CE1E8D800E64570 /* NBShopChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBShopChatViewController.swift; sourceTree = "<group>"; };
 		17FFA8011CCF38F6004A31F7 /* NBCategoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBCategoryModel.swift; sourceTree = "<group>"; };
 		17FFA8041CCF3B11004A31F7 /* MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtension.h; sourceTree = "<group>"; };
 		17FFA8051CCF3B11004A31F7 /* MJExtensionConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtensionConst.h; sourceTree = "<group>"; };
@@ -280,6 +303,9 @@
 		17FFA8471CCF54CD004A31F7 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		17FFA8481CCF54CD004A31F7 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		17FFA8591CCF54E5004A31F7 /* NBWebImageTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBWebImageTool.swift; sourceTree = "<group>"; };
+		17FFB7741CE2FFD40024DD57 /* NBShopChatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NBShopChatViewController.xib; sourceTree = "<group>"; };
+		17FFB7761CE307E00024DD57 /* NBShopChatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBShopChatCell.swift; sourceTree = "<group>"; };
+		17FFB7771CE307E00024DD57 /* NBShopChatCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NBShopChatCell.xib; sourceTree = "<group>"; };
 		66BB274B0F40DE6282FE0E42 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6771E666D04A5FDA64D9ECC5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D92E7C808EC2D72F263EB6FE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -478,6 +504,10 @@
 				17025D4D1CBBA89C0036C131 /* NBShopLRView.swift */,
 				17FEAEE31CBCFD8E008FD7F7 /* NBActivityView.swift */,
 				170793251CD9CBCC00285053 /* NBSearchViewController.swift */,
+				171800361CDAF599004487F0 /* NBProductDetailViewController.swift */,
+				171800371CDAF599004487F0 /* NBProductDetailViewController.xib */,
+				17FF65E71CE1E8D800E64570 /* NBShopChatViewController.swift */,
+				17FFB7741CE2FFD40024DD57 /* NBShopChatViewController.xib */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -489,6 +519,9 @@
 				1793AF511CC9F123004CA082 /* NBOrderStatusModel.swift */,
 				17FFA8011CCF38F6004A31F7 /* NBCategoryModel.swift */,
 				17FFA8251CCF505F004A31F7 /* NBProductListModel.swift */,
+				17FF65E11CE1D78500E64570 /* NBActivityModel.swift */,
+				1711713E1CE5B80F00FE7741 /* NBShopChatModel.swift */,
+				171171401CE5C1E600FE7741 /* NBChatSQLDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -511,6 +544,8 @@
 			children = (
 				17FEAED61CBC88D7008FD7F7 /* ShopView */,
 				17025D4A1CBB85DF0036C131 /* Common */,
+				17F4AA671CDC766D0031C141 /* NBPictureTurnView.swift */,
+				17F4AA691CDC7DD80031C141 /* NBPictureCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -623,6 +658,10 @@
 				17FEAEDB1CBC8955008FD7F7 /* NBShopRightCell.swift */,
 				17FEAEDC1CBC8955008FD7F7 /* NBShopRightCell.xib */,
 				17FEAEDF1CBCA97E008FD7F7 /* NBShopTittleView.swift */,
+				17FF65E31CE1E1D100E64570 /* NBActivityListCell.swift */,
+				17FF65E41CE1E1D100E64570 /* NBActivityListCell.xib */,
+				17FFB7761CE307E00024DD57 /* NBShopChatCell.swift */,
+				17FFB7771CE307E00024DD57 /* NBShopChatCell.xib */,
 			);
 			path = ShopView;
 			sourceTree = "<group>";
@@ -777,6 +816,8 @@
 			files = (
 				170F33CA1CBF83F1006CEAEC /* NBMeViewController.xib in Resources */,
 				173E0D0E1CB75252009BBBEC /* LaunchScreen.storyboard in Resources */,
+				171800391CDAF599004487F0 /* NBProductDetailViewController.xib in Resources */,
+				17FFB7751CE2FFD40024DD57 /* NBShopChatViewController.xib in Resources */,
 				17501B021CBDEA3400196958 /* NBOrderListView.xib in Resources */,
 				173E0D291CB75C3C009BBBEC /* Storyboard.storyboard in Resources */,
 				173E0D0B1CB75252009BBBEC /* Assets.xcassets in Resources */,
@@ -786,6 +827,8 @@
 				1710BEE41CD06D0500EC95DA /* Info.plist in Resources */,
 				17501B041CBE10F800196958 /* NBSaleViewController.xib in Resources */,
 				17FEAEDE1CBC8955008FD7F7 /* NBShopRightCell.xib in Resources */,
+				17FFB7791CE307E00024DD57 /* NBShopChatCell.xib in Resources */,
+				17FF65E61CE1E1D100E64570 /* NBActivityListCell.xib in Resources */,
 				17FEAEDA1CBC8933008FD7F7 /* NBShopLeftCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -845,7 +888,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17F4AA6A1CDC7DD80031C141 /* NBPictureCollectionViewCell.swift in Sources */,
 				17FFA84E1CCF54CD004A31F7 /* SDWebImageDownloader.m in Sources */,
+				17FF65E81CE1E8D800E64570 /* NBShopChatViewController.swift in Sources */,
+				1711713F1CE5B80F00FE7741 /* NBShopChatModel.swift in Sources */,
 				17FFA8551CCF54CD004A31F7 /* UIImage+WebP.m in Sources */,
 				1793AF881CCA28DA004CA082 /* MJRefreshBackGifFooter.m in Sources */,
 				17501B001CBDEA1300196958 /* NBOrderListView.swift in Sources */,
@@ -863,6 +909,7 @@
 				17FFA8511CCF54CD004A31F7 /* SDWebImagePrefetcher.m in Sources */,
 				17025D4C1CBB86240036C131 /* NBSearchView.swift in Sources */,
 				17FFA8241CCF3C78004A31F7 /* NBModelTool.swift in Sources */,
+				17F4AA681CDC766D0031C141 /* NBPictureTurnView.swift in Sources */,
 				17FFA8191CCF3B11004A31F7 /* MJExtensionConst.m in Sources */,
 				1710BEE31CD06D0500EC95DA /* FMResultSet.m in Sources */,
 				1793AF941CCA2B72004CA082 /* NBMJRefreshTool.swift in Sources */,
@@ -883,7 +930,9 @@
 				17FFA8261CCF505F004A31F7 /* NBProductListModel.swift in Sources */,
 				1793AF891CCA28DA004CA082 /* MJRefreshBackNormalFooter.m in Sources */,
 				17FFA81A1CCF3B11004A31F7 /* MJFoundation.m in Sources */,
+				171171411CE5C1E600FE7741 /* NBChatSQLDataModel.swift in Sources */,
 				170C9A1A1CCB24480046C8C9 /* NBMJRefreshHeader.swift in Sources */,
+				17FF65E51CE1E1D100E64570 /* NBActivityListCell.swift in Sources */,
 				1793AF8D1CCA28DA004CA082 /* MJRefreshStateHeader.m in Sources */,
 				1793AF811CCA28DA004CA082 /* MJRefreshBackFooter.m in Sources */,
 				176FC01B1CB7A8E4000996FA /* NBShopViewController.swift in Sources */,
@@ -913,6 +962,7 @@
 				176FC0151CB7A8A9000996FA /* NBMessageViewController.swift in Sources */,
 				1710BEEA1CD0A39500EC95DA /* NBProductDataUtil.swift in Sources */,
 				17FFA8211CCF3B11004A31F7 /* NSObject+MJProperty.m in Sources */,
+				171800381CDAF599004487F0 /* NBProductDetailViewController.swift in Sources */,
 				17FFA81F1CCF3B11004A31F7 /* NSObject+MJCoding.m in Sources */,
 				170E11B61CC8D702007FAE46 /* AFURLResponseSerialization.m in Sources */,
 				1710BEE11CD06D0500EC95DA /* FMDatabasePool.m in Sources */,
@@ -928,7 +978,9 @@
 				17FFA8521CCF54CD004A31F7 /* UIButton+WebCache.m in Sources */,
 				17025D4E1CBBA89C0036C131 /* NBShopLRView.swift in Sources */,
 				1710BEE81CD06E6C00EC95DA /* NBSQLDataManagerTool.swift in Sources */,
+				17FF65E21CE1D78500E64570 /* NBActivityModel.swift in Sources */,
 				17FFA81B1CCF3B11004A31F7 /* MJProperty.m in Sources */,
+				17FFB7781CE307E00024DD57 /* NBShopChatCell.swift in Sources */,
 				17FFA84B1CCF54CD004A31F7 /* SDImageCache.m in Sources */,
 				173E0D271CB75C0F009BBBEC /* NBLoginViewController.swift in Sources */,
 				1793AF821CCA28DA004CA082 /* MJRefreshComponent.m in Sources */,
